@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.idea/
+.venv/
+cdx_cache/
+1_zayavka/
+2_dodatky_do_zayavky/
+_arkhiv/
+*.log
+Util/
