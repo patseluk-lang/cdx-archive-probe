@@ -56,7 +56,7 @@ CACHE_DIR = Path("cdx_cache")
 FIELDS = "timestamp,original,statuscode,mimetype,digest"
 
 
-# --------------------------- network ---------------------------
+# network
 
 
 def _http_get(url: str) -> str:
@@ -121,7 +121,7 @@ def _build_query(
     return f"{CDX_ENDPOINT}?{urllib.parse.urlencode(params)}"
 
 
-# --------------------------- cache ---------------------------
+# cache
 #
 # JSONL format: one record per line. Appending to the end of the file costs
 # exactly as much as the new data. In v1 I rewrote the entire JSON file after
@@ -173,7 +173,7 @@ def _read_legacy_cache(cache_key: str) -> tuple[list[dict], bool] | None:
     return records, suspected
 
 
-# --------------------------- collection ---------------------------
+# collection
 
 
 def fetch_captures(
@@ -262,7 +262,7 @@ def fetch_captures(
     return captures, truncated
 
 
-# --------------------------- analysis: coverage ---------------------------
+# analysis: coverage
 
 
 def _months_between(first: str, last: str) -> list[str]:
@@ -303,7 +303,7 @@ def analyse_coverage(captures: list[dict], url_contains: str | None) -> dict:
     }
 
 
-# --------------------------- analysis: statuses ---------------------------
+# analysis: statuses
 
 
 def analyse_status_timeline(captures: list[dict]) -> dict:
@@ -338,7 +338,7 @@ def analyse_status_timeline(captures: list[dict]) -> dict:
     }
 
 
-# --------------------------- reports ---------------------------
+# reports
 
 
 def _truncation_banner() -> list[str]:
@@ -446,7 +446,7 @@ def render_status_report(url, stats, truncated) -> str:
     return "\n".join(lines)
 
 
-# --------------------------- CLI ---------------------------
+# CLI
 
 
 def main() -> int:
